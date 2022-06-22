@@ -1,0 +1,19 @@
+{
+  "name": "js_hw3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task1_@d_vitaly.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/415816/js_HW3.git"
+  },
+  "author": "@d_vitaly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/415816/js_HW3/issues"
+  },
+  "homepage": "https://github.com/415816/js_HW3#readme"
+}
