@@ -354,8 +354,17 @@ const people = [{
 // Task 2*
 // Откройте в VSCode task2.json файл. Скопируйте из него JSONку, вставьте в свой код (присвоив в переменную).
 // Дан массив объектов. Каждый объект является идентификационной карточкой человека. Нам нужно хранить только уникальные значения в этом массиве. Реализуйте функцию, которая будет выполнять эту работу.
-const filterPeople = people.findIndex(function (user){
-    if(user.name == 'Mrs. Dennis Schulist'){
-        console.log(user)
-    }
-    })
+
+let allNames = []
+people.forEach(p => allNames.push(p.name))      // собрали список имен
+let uni = new Set(allNames)                     // оставили в списке только уникальные имена
+let indUniqArr = []
+for (let uniq of uni) {
+    indUniqArr.push(allNames.indexOf(uniq))     // определили индексы уникальных имен в общем списке
+}
+let uniqPeople = []
+for (let i = 0; i < indUniqArr.length; i++) {
+    uniqPeople.push(people[i])                  // по определенным индексам отбираем карточки сотрудников из заданного массива
+}
+console.log(uniqPeople.length)
+console.log(people.length)
