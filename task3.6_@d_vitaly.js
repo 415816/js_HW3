@@ -54,19 +54,8 @@ const enterprises = [
     }
 ]
 
-/*5. Написать функцию для редактирования названия предприятия. Принимает в качестве аргумента id предприятия и новое имя предприятия.
+
+/*6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
 
     Пример:
-editEnterprise(1, "Новое название предприятия")*/
-const editEnterprise = (idEnterprise, newNameEnt) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        if (enterprises[i].id == idEnterprise) {
-            enterprises[i].name = newNameEnt
-        }
-    }
-}
-editEnterprise(1, 'Бывшее предприятие 1')
-console.log(enterprises)
-
-editEnterprise(1, 'Бывшее бывшее предприятие 1')
-console.log(enterprises)
+editDepartment(7, "Новое название отдела")*/

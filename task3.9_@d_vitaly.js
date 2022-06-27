@@ -54,19 +54,8 @@ const enterprises = [
     }
 ]
 
-/*5. Написать функцию для редактирования названия предприятия. Принимает в качестве аргумента id предприятия и новое имя предприятия.
+/*9. Написать функцию для переноса сотрудников между отделами одного предприятия. В качестве аргумента принимает два значения: id отдела, из которого будут переноситься сотрудники и id отдела, в который будут переноситься сотрудники).
 
-    Пример:
-editEnterprise(1, "Новое название предприятия")*/
-const editEnterprise = (idEnterprise, newNameEnt) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        if (enterprises[i].id == idEnterprise) {
-            enterprises[i].name = newNameEnt
-        }
-    }
-}
-editEnterprise(1, 'Бывшее предприятие 1')
-console.log(enterprises)
+Пример:
+    moveEmployees(2, 3)*/
 
-editEnterprise(1, 'Бывшее бывшее предприятие 1')
-console.log(enterprises)
