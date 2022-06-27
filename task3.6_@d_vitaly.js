@@ -59,3 +59,16 @@ const enterprises = [
 
     Пример:
 editDepartment(7, "Новое название отдела")*/
+const editDepartment = (idDepartment, newNameDepartment) => {
+    for (let i = 0; i < enterprises.length; i++) {
+        for (let j = 0; j < enterprises[i].departments.length; j++) {
+            if (enterprises[i].departments[j].id == idDepartment){
+                enterprises[i].departments[j].name = newNameDepartment
+            }
+        }
+    }
+}
+editDepartment(2,'Дворники')
+console.log(enterprises[0])
+editDepartment(4,'Отдел снабжения дворников')
+console.log(enterprises[0])

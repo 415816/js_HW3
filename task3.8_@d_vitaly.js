@@ -60,3 +60,16 @@ const enterprises = [
     Пример:
 deleteDepartment(3)*/
 
+const deleteDepartment = (idDepartment) => {
+    for (let i = 0; i < enterprises.length; i++) {
+        for (let j = 0; j < enterprises[i].departments.length; j++) {
+            if (enterprises[i].departments[j].id == idDepartment){
+                enterprises[i].departments.splice(j,1)
+            }
+        }
+    }
+}
+deleteDepartment(2)
+console.log(enterprises[0])
+deleteDepartment(4)
+console.log(enterprises[0])

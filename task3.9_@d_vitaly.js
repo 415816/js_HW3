@@ -58,4 +58,21 @@ const enterprises = [
 
 Пример:
     moveEmployees(2, 3)*/
+const moveEmployees = (idDepartmentFrom, idDepartmentTo) => {
+    for (let i = 0; i < enterprises.length; i++) {
+        for (let j = 0; j < enterprises[i].departments.length; j++) {
+            if (enterprises[i].departments[j].id == idDepartmentFrom){
+                enterprises[i].departments[j].employees_count--
+            }
+            if (enterprises[i].departments[j].id == idDepartmentTo){
+                enterprises[i].departments[j].employees_count++
+            }
+        }
+    }
+}
+console.log(enterprises[0])
+moveEmployees(2, 3)
 
+console.log(enterprises[0])
+moveEmployees(2, 3)
+console.log(enterprises[0])

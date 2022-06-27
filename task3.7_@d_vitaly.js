@@ -58,3 +58,12 @@ const enterprises = [
 
     Пример:
 deleteEnterprise(1)*/
+const deleteEnterprise = (idEnterprise) => {
+    for (let i = 0; i < enterprises.length; i++) {
+        if (enterprises[i].id == idEnterprise) {
+            enterprises.splice(i,1)
+        }
+    }
+}
+deleteEnterprise(5)
+console.log(enterprises)
