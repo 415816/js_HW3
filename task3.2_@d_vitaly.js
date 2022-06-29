@@ -66,7 +66,6 @@ const getEnterpriseName = (idDepartment) => {
             if ((enterprises[i].departments[j].name === idDepartment) || (enterprises[i].departments[j].id === idDepartment)){
                 console.log(enterprises[i].name)
             }
-
         }
     }
 }

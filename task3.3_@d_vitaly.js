@@ -62,10 +62,10 @@ const addEnterprise = (newEnt) => {
     let newElement = {}
     for (let i = 0; i < enterprises.length; i++) {
         if (i == enterprises.length - 1) {
-            console.log(enterprises[enterprises.length - 1])                // находим последнее предприятие
+            // console.log(enterprises[enterprises.length - 1])                // находим последнее предприятие
             if (enterprises[i].departments) {
             for (let j = 0; j < enterprises[i].departments.length; j++) {
-                console.log(enterprises[i].departments[enterprises[i].departments.length - 1])      // находим последний отдел в этом последнем предприятии
+                // console.log(enterprises[i].departments[enterprises[i].departments.length - 1])      // находим последний отдел в этом последнем предприятии
                 newElement = {
                     id: enterprises[i].departments[enterprises[i].departments.length - 1].id + 1,
                     name: newEnt,
@@ -76,7 +76,6 @@ const addEnterprise = (newEnt) => {
                     name: newEnt,
                 }
             }
-
         }
     }
     enterprises.push(newElement)
