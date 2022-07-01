@@ -59,11 +59,17 @@ const enterprises = [
     Пример:
 deleteEnterprise(1)*/
 const deleteEnterprise = (idEnterprise) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        if (enterprises[i].id == idEnterprise) {
-            enterprises.splice(i,1)
+    if (!idEnterprise || typeof idEnterprise !== 'number' || typeof idEnterprise === "boolean") {
+        console.log('Недопустимый формат ввода идентификатора предприятия')
+    } else {
+        for (let i = 0; i < enterprises.length; i++) {
+            if (enterprises[i].id == idEnterprise) {
+                enterprises.splice(i, 1)
+            }
         }
     }
 }
+deleteEnterprise(true)
+deleteEnterprise('5')
 deleteEnterprise(5)
 console.log(enterprises)

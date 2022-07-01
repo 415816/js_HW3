@@ -61,15 +61,34 @@ const enterprises = [
 deleteDepartment(3)*/
 
 const deleteDepartment = (idDepartment) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        for (let j = 0; j < enterprises[i].departments.length; j++) {
-            if (enterprises[i].departments[j].id == idDepartment){
-                enterprises[i].departments.splice(j,1)
+    if (!idDepartment || typeof idDepartment !== 'number' || typeof idDepartment === "boolean") {
+        console.log('Недопустимый формат ввода идентификатора отдела')
+    } else {
+        let marker = false
+
+        for (let i = 0; i < enterprises.length; i++) {
+            for (let j = 0; j < enterprises[i].departments.length; j++) {
+                if (enterprises[i].departments[j].id == idDepartment && enterprises[i].departments[j].employees_count > 0) {
+                    console.log('Нельзя удалять отдел, люди же останутся без работы!')
+                    marker = true
+                    break
+                } else if (enterprises[i].departments[j].id == idDepartment) {
+                    enterprises[i].departments.splice(j, 1)
+                    marker = true
+                    break
+                } else if ((i === enterprises.length - 1) && (j === enterprises[i].departments.length - 1) && marker === false) {
+                    console.log('Указанный отдел не найден!')
+                    break
+                }
             }
         }
     }
 }
+
+console.log(enterprises[2])
 deleteDepartment(2)
-console.log(enterprises[0])
+deleteDepartment('2')
+deleteDepartment(1)
+deleteDepartment(10)
 deleteDepartment(4)
-console.log(enterprises[0])
+console.log(enterprises[2])

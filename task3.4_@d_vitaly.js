@@ -59,47 +59,52 @@ const enterprises = [
     Пример:
 addDepartment(1, "Название нового отдела")*/
 const allId = (arg) => {
-    let idEnterpr =[]
-    let idDepart =[]
+    let idEnterpr = []
+    let idDepart = []
     for (let i = 0; i < enterprises.length; i++) {
         idEnterpr.push(enterprises[i].id)
         for (let j = 0; j < enterprises[i].departments.length; j++) {
             idDepart.push(enterprises[i].departments[j].id)
         }
     }
-    if (arg === 'max'){
-        let maxIdEnt =  Math.max(...idEnterpr)
+    if (arg === 'max') {
+        let maxIdEnt = Math.max(...idEnterpr)
         let maxIdDep = Math.max(...idDepart)
         return Math.max(maxIdEnt, maxIdDep)
     }
 }
 
 const addDepartment = (idEnterprise, nameNewDepartment) => {
-
-    for (let i = 0; i < enterprises.length; i++) {
-        if (enterprises[i].id == idEnterprise) {
-            if (enterprises[i].departments) {
-                for (let j = 0; j < enterprises[i].departments.length; j++) {// находим последний отдел в этом последнем предприятии
-                    // console.log(enterprises[i].departments[enterprises[i].departments.length - 1])
-                    newElement = {
-                        id: allId('max') + 1,
-                        name: nameNewDepartment,
+    if (!idEnterprise || isNaN(idEnterprise) || typeof nameNewDepartment !== 'string') {
+        console.log('Недопустимый формат ввода идентификатора предприятия или названия отдела')
+    } else {
+        for (let i = 0; i < enterprises.length; i++) {
+            if (enterprises[i].id == idEnterprise) {
+                if (enterprises[i].departments) {
+                    for (let j = 0; j < enterprises[i].departments.length; j++) {// находим последний отдел в этом последнем предприятии
+                        // console.log(enterprises[i].departments[enterprises[i].departments.length - 1])
+                        newElement = {
+                            id: allId('max') + 1,
+                            name: nameNewDepartment,
+                        }
+                        // console.log(newElement)
                     }
-                    // console.log(newElement)
-                }
-            } else {
-                newElement = {
-                    id: enterprises[enterprises.length - 1].id + 1,
-                    name: newEnt,
-                }
+                } else {
+                    newElement = {
+                        id: enterprises[enterprises.length - 1].id + 1,
+                        name: newEnt,
+                    }
 
+                }
+                enterprises[i].departments.push(newElement)
             }
-            enterprises[i].departments.push(newElement)
         }
     }
-
 }
 addDepartment(1, "НазваниеНовогоОтдела")
 addDepartment(5, "НазвНовОтд")
+addDepartment(2, 4)
+addDepartment('2', true)
+
 console.log(enterprises[0])
 console.log(enterprises[1])

@@ -60,14 +60,27 @@ const enterprises = [
     Пример:
 editDepartment(7, "Новое название отдела")*/
 const editDepartment = (idDepartment, newNameDepartment) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        for (let j = 0; j < enterprises[i].departments.length; j++) {
-            if (enterprises[i].departments[j].id == idDepartment){
-                enterprises[i].departments[j].name = newNameDepartment
+    let marker = false
+    if (!idDepartment || isNaN(idDepartment) || typeof newNameDepartment !== 'string') {
+        console.log('Недопустимый формат ввода идентификатора предприятия или названия отдела')
+    } else {
+        for (let i = 0; i < enterprises.length; i++) {
+            for (let j = 0; j < enterprises[i].departments.length; j++) {
+                if (enterprises[i].departments[j].id == idDepartment) {
+                    enterprises[i].departments[j].name = newNameDepartment
+                    marker = true
+                    break
+                } else if ((i === enterprises.length - 1) && (j === enterprises[i].departments.length - 1) && marker === false) {
+                    console.log('Указанный отдел не найден!')
+                    break
+                }
             }
         }
     }
 }
+editDepartment('2',2)
+editDepartment(1,'Дворники')
+
 editDepartment(2,'Дворники')
 console.log(enterprises[0])
 editDepartment(4,'Отдел снабжения дворников')

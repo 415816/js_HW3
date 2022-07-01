@@ -59,12 +59,20 @@ const enterprises = [
     Пример:
 editEnterprise(1, "Новое название предприятия")*/
 const editEnterprise = (idEnterprise, newNameEnt) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        if (enterprises[i].id == idEnterprise) {
-            enterprises[i].name = newNameEnt
+    if (!idEnterprise || isNaN(idEnterprise) || typeof newNameEnt !== 'string') {
+        console.log('Недопустимый формат ввода идентификатора или названия предприятия')
+    } else {
+        for (let i = 0; i < enterprises.length; i++) {
+            if (enterprises[i].id == idEnterprise) {
+                enterprises[i].name = newNameEnt
+            }
         }
     }
 }
+
+editEnterprise(1, 5)
+editEnterprise('sdfsf', 'sdfsdf')
+
 editEnterprise(1, 'Бывшее предприятие 1')
 console.log(enterprises)
 

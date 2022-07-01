@@ -59,28 +59,34 @@ const enterprises = [
 Пример:
     addEnterprise("Название нового предприятия")*/
 const addEnterprise = (newEnt) => {
-    let newElement = {}
-    for (let i = 0; i < enterprises.length; i++) {
-        if (i == enterprises.length - 1) {
-            // console.log(enterprises[enterprises.length - 1])                // находим последнее предприятие
-            if (enterprises[i].departments) {
-            for (let j = 0; j < enterprises[i].departments.length; j++) {
-                // console.log(enterprises[i].departments[enterprises[i].departments.length - 1])      // находим последний отдел в этом последнем предприятии
-                newElement = {
-                    id: enterprises[i].departments[enterprises[i].departments.length - 1].id + 1,
-                    name: newEnt,
-                }
-            }} else {
-                newElement = {
-                    id: enterprises[enterprises.length - 1].id + 1,
-                    name: newEnt,
+    if (typeof newEnt !== 'string') {
+        console.log('Недопустимый формат ввода названия нового отдела')
+    } else {
+        let newElement = {}
+        for (let i = 0; i < enterprises.length; i++) {
+            if (i == enterprises.length - 1) {
+                // console.log(enterprises[enterprises.length - 1])                // находим последнее предприятие
+                if (enterprises[i].departments) {
+                    for (let j = 0; j < enterprises[i].departments.length; j++) {
+                        // console.log(enterprises[i].departments[enterprises[i].departments.length - 1])      // находим последний отдел в этом последнем предприятии
+                        newElement = {
+                            id: enterprises[i].departments[enterprises[i].departments.length - 1].id + 1,
+                            name: newEnt,
+                        }
+                    }
+                } else {
+                    newElement = {
+                        id: enterprises[enterprises.length - 1].id + 1,
+                        name: newEnt,
+                    }
                 }
             }
         }
+        enterprises.push(newElement)
+        console.log(enterprises)
     }
-    enterprises.push(newElement)
-    console.log(enterprises)
 }
 addEnterprise('Новое предприятие')
 addEnterprise('4444444444444444')
 addEnterprise('jgjg')
+addEnterprise(3241234)

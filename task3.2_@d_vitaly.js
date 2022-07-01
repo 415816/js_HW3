@@ -61,12 +61,28 @@ const enterprises = [
     getEnterpriseName("Отдел маркетинга") // Предприятие 2*/
 
 const getEnterpriseName = (idDepartment) => {
-    for (let i = 0; i < enterprises.length; i++) {
-        for (let j = 0; j < enterprises[i].departments.length; j++){
-            if ((enterprises[i].departments[j].name === idDepartment) || (enterprises[i].departments[j].id === idDepartment)){
-                console.log(enterprises[i].name)
+    // console.log(typeof idDepartment)
+    let marker = false
+    if (!idDepartment || typeof idDepartment !== 'string' && typeof idDepartment !== 'number' || typeof idDepartment === "boolean") {
+        console.log('Недопустимый формат ввода идентификатора отдела')
+    } else {
+        for (let i = 0; i < enterprises.length; i++) {
+            for (let j = 0; j < enterprises[i].departments.length; j++) {
+                if ((enterprises[i].departments[j].name === idDepartment) || (enterprises[i].departments[j].id === idDepartment)) {
+                    console.log(enterprises[i].name)
+                    marker = true
+                    break
+                } else if ((i === enterprises.length - 1) && (j === enterprises[i].departments.length - 1) && marker === false) {
+                    console.log('Указанный отдел не найден!')
+                    break
+                }
             }
         }
     }
 }
-getEnterpriseName('Отдел маркетинга')   // ТЗ не соответствует примеру, сделал по ТЗ, т.к. по логике надо выводить все предприятия, где есть такие названия отделов (с id понятное дело такой дилемы не возникает)
+getEnterpriseName('Отдел маркетинга')
+getEnterpriseName(1)
+getEnterpriseName(2)
+getEnterpriseName(true)
+getEnterpriseName(undefined)
+getEnterpriseName(null)

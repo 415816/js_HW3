@@ -27,25 +27,6 @@ const filterPeople = (people) => {
     for (let i = 0; i < indUniqArr.length; i++) {
         uniqPeople.push(people[i])                  // по определенным индексам отбираем карточки сотрудников из заданного массива
     }
-    console.log(uniqPeople.length)
-    console.log(people.length)
+    console.log(uniqPeople)
+    console.log(people)
 }
-// const givePeople = async (pathToJSON) => {
-//     return new Promise((resolve, reject) => fs.readFile(pathToJSON, (err, content) => {
-//         if (err) {
-//             throw reject(err.message)
-//         }
-//         resolve(content)
-//     }))
-// }
-// givePeople.then(console.log(content))
-
-// let giveP = async () => {
-//     await fs.readFile(pathToFile, (err, content) => {
-//         if (err) {
-//             throw err
-//         }
-//         console.log(content.toString())
-//     })
-// }
-// giveP()

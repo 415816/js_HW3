@@ -98,7 +98,7 @@ const company = [
 
 const getCompanyStructure = (company, pref = '') => {
     company.forEach(e => {
-        console.log(`${pref} ${e.name} (${e.users_count})`)
+        console.log(`${pref}${pref ? ' ' : ''}${e.name} (${e.users_count})`)
         if (e.children) {
             pref += '--'
             getCompanyStructure(e.children, pref)
