@@ -58,7 +58,7 @@ const enterprises = [
 
     Пример:
 addDepartment(1, "Название нового отдела")*/
-const allId = (arg) => {
+const maxId = (arg) => {
     let idEnterpr = []
     let idDepart = []
     for (let i = 0; i < enterprises.length; i++) {
@@ -84,7 +84,7 @@ const addDepartment = (idEnterprise, nameNewDepartment) => {
                     for (let j = 0; j < enterprises[i].departments.length; j++) {// находим последний отдел в этом последнем предприятии
                         // console.log(enterprises[i].departments[enterprises[i].departments.length - 1])
                         newElement = {
-                            id: allId('max') + 1,
+                            id: maxId('max') + 1,
                             name: nameNewDepartment,
                         }
                         // console.log(newElement)
